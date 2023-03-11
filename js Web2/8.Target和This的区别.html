@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	<div>964264</div>
+	
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	</ul>
+	<script>
+		/*
+			1. target指向事件的触发者
+			2. this指向事件的绑定(注册)者
+		
+		*/
+		
+		var div=document.querySelector('div');
+		div.addEventListener('click',function(e){
+			console.log(e.target);
+		})
+		
+		var ul=document.querySelector('ul');
+		ul.addEventListener('click',function(e){
+			console.log(e.target);
+			console.log(this);
+		})
+		
+		
+	</script>
+	</body>
+</html>

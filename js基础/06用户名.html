@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.error{
+				color: pink;
+			}
+		
+			.wrong{
+				color: red;
+			}
+			span{
+				font-size: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		用户名:<input type="text" class="cc"/>
+		<span></span>
+		
+		<script>
+			// /^[\u4e00-\u9fa5]{2,8}$/ 中文
+			let iut=document.querySelector('.cc')
+			let span=document.querySelector('span')
+			
+			iut.addEventListener('blur',function(){
+				if(/^[a-zA-Z0-9-_]{6,16}$/.test(iut.value)){
+					span.innerHTML='输入正确'
+					span.className='error'
+				}else{
+					span.innerHTML='只能输入6~16位以英文字母，数字或下划线组成的'
+					span.className='wrong'
+				}
+				
+			})
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

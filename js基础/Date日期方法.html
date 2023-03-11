@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+<script type="text/javascript">
+	//格式化年月日
+	var cc=new Date();
+	alert(cc);
+
+	var sb=new Date();
+
+	var hxy=sb.getFullYear();//返回年
+	var zxy=sb.getMonth()+1;//返回月份,不过返回的月份小一个月,应加1
+	var sbq=sb.getDate();//返回日
+	var lxy=sb.getDay();//返回星期几
+
+	alert('今天是'+hxy+'年'+zxy+'月'+sbq+'日'+'星期'+lxy);
+
+
+	//格式化时分秒
+
+	var csy=new Date();
+
+	var jj=csy.getHours();//返回时
+	var jb=csy.getMinutes();//返回分
+	var nn=csy.getSeconds();//返回秒
+	alert('现在是'+jj+'时'+jb+'分'+nn+'秒');
+
+	//封装一个函数返回但当前的时分秒,格式:08:08:08
+	function getTime(){
+		var lyy=new Date();
+
+		var mh=lyy.getHours();
+		mh=mh<10 ?'0'+mh:mh;
+		var wl=lyy.getMinutes();
+		wl=wl<10 ?'0'+wl:wl;
+		var sm=lyy.getSeconds();
+		sm=sm<10 ?'0'+sm:sm;
+
+		return mh+':'+wl+':'+sm;
+	}
+
+	alert(getTime());
+
+
+</script>
+<body>
+
+</body>
+</html>

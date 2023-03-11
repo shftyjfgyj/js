@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+<style type="text/css">
+	img{
+		width: 400px;
+		height: 400px;
+		
+	}
+</style>
+</head>
+<body>
+
+	<img src="images/1.jpg">
+	<div>上午好</div>
+
+
+
+<script type="text/javascript">
+	
+	var img=document.querySelector('img');
+	var div=document.querySelector('div');
+
+	var date=new Date;
+	var sb=date.getHours();
+
+	if(sb<12){
+		img.src='images/1.jpg';
+		div.innerHTML='上午好';
+	}else if(sb<18){
+		img.src='images/8.jpg';
+		div.innerHTML='下午好';
+	}else{
+		img.src='images/2.jpg';
+		div.innerHTML='晚上好';
+	}
+
+
+
+
+</script>
+</body>
+</html>

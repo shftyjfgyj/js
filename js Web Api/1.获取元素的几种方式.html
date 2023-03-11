@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>获取元素的方式</title>
+</head>
+<body>
+
+	
+	<!--获取元素的几种方式
+	
+	1.document.getEmelentById('');
+	通过id来选择内容
+  	
+  	2.document.getEmelentsByTagName('');
+	设置想要获取的某个元素,返回其整个集合以伪数组形式存在
+	
+	3.document.getElementById('');
+	document.getEmelentsByTagName('');
+	获取某个具体的元素 
+
+	h5新增方法
+	4.document.querySelector('');
+	获取指定选择器的第一个元素
+	
+	-->
+
+
+
+	<ol id="ol">
+	<li>李熙瑶</li>
+	<li>小黄a</li>
+	<li>李莹莹</li>
+	<li>王菲菲</li>
+	</ol>
+
+	<ul id="ul">
+	<li>神明也会遗憾</li>	
+	<li>神明也曾落泪</li>
+	<li>我见青山多妩媚</li>
+	<li>料青山见我应如是</li>
+	<li>月</li>
+	</ul>
+
+
+
+<script type="text/javascript">
+	//获取带有ol选择器的元素
+	var c=document.getElementById('ol');
+	console.log(c);
+
+	//获取文档里面的所有li元素
+	var cc=document.getElementsByTagName('li');
+	console.log(cc);
+
+	//遍历每一个li元素里面的内容
+	for(var x=0;x<cc.length;x++){
+		console.log(cc[x]);
+	}
+
+
+
+	//指定获取ul里面的li元素
+	var hxy=document.getElementById('ul');
+	console.log(ul.getElementsByTagName('li'));
+
+	//获取第一个li元素
+	var cy=document.querySelector('li');
+	console.log(cy);
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>李熙瑶</li>
+			<li>方雨竹</li>
+			<li>王瑄</li>
+			<li>人世间</li>
+			<li>御道旗</li>
+		</ul>
+	
+	<script>
+		/*
+			事件委托原理:
+				不单独给每个子节点设置事件侦听器,而是给父节点设置侦听器,利用事件冒泡影响每一个子节点
+		
+		*/
+		var ul=document.querySelector('ul');
+		var lis=document.querySelectorAll('li');
+		
+		ul.addEventListener('click',function(e){
+			alert('我无敌');
+			
+		})
+		
+		for (var x=0;x<lis.length;x++) {
+			lis[x].onclick=function(){
+				for (var i=0;i<lis.length;i++) {
+					lis[i].style.color='';
+				}
+			this.style.color='pink';
+			}
+		}
+	
+	
+	
+	</script>
+	</body>
+</html>

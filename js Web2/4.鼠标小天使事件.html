@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	<style type="text/css">
+		img{
+			position: absolute;
+			width: 150px;
+			height: 100px;
+		}
+	</style>
+	</head>
+	<body>
+	<img src="images/ts.gif"/>
+	
+	<script>
+		/*
+			1. mousemove只要我们移动1px,就会触发这个事件
+			2.核心原理：每次移动，我们就会得到最新的鼠标坐标,把x和y值给图片的left和top值
+			就可以移动图片
+		*/
+		var img=document.querySelector('img');
+		document.addEventListener('mousemove',function(e){
+			var x=e.pageX;
+			var y=e.pageY;
+			console.log("x的坐标是:"+x+','+"y的坐标是:"+y);
+			//3.千万不要忘记给图片添加 px单位
+			img.style.left=x+'px';
+			img.style.top=y+'px';
+			
+		})
+		
+		
+		
+		 
+	</script>
+	</body>
+</html>

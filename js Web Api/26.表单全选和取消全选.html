@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<table width="200" height="200" border="1" align="center">
+		<thead height="30px" bgcolor="pink">
+			<tr>
+			<th><input type="checkbox" id="inAll"/></th>
+			<th>机型</th>
+			<th>价格</th>
+			</tr>
+		</thead>
+		<tbody id="inp">
+			<tr>
+			<td><input type="checkbox"/></td>	
+			<td>Xiaomi</td>
+			<td>1200</td>
+			</tr>
+			<tr>
+			<td><input type="checkbox"/></td>	
+			<td>华为荣耀</td>
+			<td>2000</td>
+			</tr>
+			<tr>
+			<td><input type="checkbox"/></td>	
+			<td>苹果</td>
+			<td>5000</td>
+			</tr>
+
+
+		</tbody>
+	</table>
+<script type="text/javascript">
+	//获取第一个复选框
+	var all=document.getElementById('inAll');
+	//获取后面所有的复选框
+	var inp=document.getElementById('inp').getElementsByTagName('input');
+
+	all.onclick=function(){
+		/*先获取到当前第一个复选框的选中状态,
+			this.checked
+		*/
+		this.checked;
+		for(var x=0;x<inp.length;x++){
+			inp[x].checked=this.checked;
+		}
+	}
+
+	/*
+		下面的所有复选框为选中状态时,第一个复选框才可以被选中,给下面所有复选框绑定点击事件,每次点击都要循环判断后面的几个是否被选中
+	*/
+
+
+	for(var i=0;i<inp.length;i++){
+		
+		inp[i].onclick=function(){
+			//flag控制全选按钮是否选中
+			var flag=true;
+			//每次点击下面的复选框都要判断后面几个是否被选中
+			for(var y=0;y<inp.length;y++){
+				if(!inp[y].checked){
+					flag=false;
+				}
+			}
+				all.checked=flag;
+		}
+	}
+
+
+</script>
+
+</body>
+</html>

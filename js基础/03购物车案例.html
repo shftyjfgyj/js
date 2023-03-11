@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	<style type="text/css">
+		table{
+			width: 500px;
+			height: 300px;
+			font-size: 8px;
+			text-align: center;
+		}
+		th,td{	
+			border: 1px solid paleturquoise;
+		}
+		th{
+			height: 40px;
+			background-color: pink;
+		}
+		input{
+			text-align: center;
+		}
+		button{
+			width: 30px;
+		}
+		.delete{
+			color: red;
+			text-decoration: none;
+		}
+	
+		.div{
+			width: 500px;
+			height: 50px;
+			border: 1px solid red;
+			position: relative;
+		}
+		span{
+			font-size: 15px;
+		}
+		.spanOne{
+			position: absolute;
+			right: 100px;
+		}
+		.spanTwo{
+			position: absolute;
+			right: 20px;
+		}
+	</style>
+	</head>
+	<body>
+	<table>
+		<thead>
+			<tr>
+				<th><input type="checkbox" class="checkAll"/>全选</th>
+				<th>商品</th>
+				<th>单价</th>
+				<th>商品数量</th>
+				<th>小计</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody class="to">
+			<tr>
+				<td><input type="checkbox" class="check"/></td>
+				<td>伊利牛奶</td>
+				<td class="price">5¥</td>
+				<td>
+					<button class="reduce" disabled>-</button>
+					<input type="text" value="1" readonly size="3" class="count"/>
+					<button class="add">+</button>
+				</td>
+				<td class="con">5¥</td>
+				<td><a href="javascript:;" class="delete">删除</a></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" class="check"/></td>
+				<td>旺仔牛奶</td>
+				<td class="price">10¥</td>
+				<td>
+					<button class="reduce" disabled>-</button>
+					<input type="text" value="1" readonly size="3" class="count"/>
+					<button class="add">+</button>
+				</td>
+				<td class="con">10¥</td>
+				<td><a href="javascript:;" class="delete">删除</a></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" class="check"/></td>
+				<td>百事可乐</td>
+				<td class="price">15¥</td>
+				<td>
+					<button class="reduce" disabled>-</button>
+					<input type="text" value="1" readonly size="3" class="count"/>
+					<button class="add">+</button>
+				</td>
+				<td class="con">15¥</td>
+				<td><a href="javascript:;" class="delete">删除</a></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" class="check"/></td>
+				<td>安慕希</td>
+				<td class="price">20¥</td>
+				<td>
+					<button class="reduce" disabled>-</button>
+					<input type="text" value="1" readonly size="3" class="count"/>
+					<button class="add">+</button>
+				</td>
+				<td class="con">20¥</td>
+				<td><a href="javascript:;" class="delete">删除</a></td>
+			</tr>
+		</tbody>
+	</table>
+	 <div class="div">
+		 <span class="spanOne">已选择<span class="less">0</span>件商品</span>
+		 <span class="spanTwo">共计<span class="result"></span>¥</span>
+	 </div>
+	
+	<script>
+		//增加
+		let adds=document.querySelectorAll('.add')
+		//减少
+		let reduces=document.querySelectorAll('.reduce')
+		//删除
+		let del=document.querySelectorAll('.delete')
+		// input
+		let inputses=document.querySelectorAll('.count')
+		//单价
+		let prices=document.querySelectorAll('.price')
+		//小计
+		let cons=document.querySelectorAll('.con')
+		// tbody
+		let to=document.querySelector('.to')
+		//全选按钮
+		let ckAll=document.querySelector('.checkAll')
+		//后面所有按钮
+		let checks=document.querySelectorAll('.check')
+		//总价
+		let result=document.querySelector('.result')
+		//商品数量
+		let less=document.querySelector('.less')
+		
+		for(let i=0;i<adds.length;i++){
+			//加法操作
+			adds[i].addEventListener('click',function(){
+				//点击到谁,就让谁自加
+				inputses[i].value++
+				//减号解除
+				reduces[i].disabled=false
+				//计算单价 等于价格乘以数量
+				//prices[i].innerHTML 得到的值为5¥ parseInt('5¥')=5
+				cons[i].innerHTML=parseInt(prices[i].innerHTML)*inputses[i].value+'¥'
+				//计算总价
+				cc()
+			})
+			//减法操作
+			reduces[i].addEventListener('click',function(){
+				//点击到谁,就让谁自减
+				inputses[i].value--
+				//控制减号
+				if(inputses[i].value<=1){
+					this.disabled=true
+				}
+				//计算单价
+				cons[i].innerHTML=parseInt(prices[i].innerHTML)*inputses[i].value+'¥'
+				//计算总价
+				cc()
+			})
+		
+				//删除操作
+				del[i].addEventListener('click',function(){
+					//点击删除后,判断按钮的数量,如果为1,把全选按钮的状态设为false
+					let checks=document.querySelectorAll('.check')	
+					//console.log(checks.length)
+					if(checks.length==1){
+					ckAll.checked=false
+					}
+					
+					to.removeChild(this.parentNode.parentNode);
+					//调用总计模块
+					cc()
+				})
+				
+				//全选操作
+				ckAll.addEventListener('click',function(){
+					let checks=document.querySelectorAll('.check')	
+					//如果删除的话,需要重新判断当前按钮的数量	
+					if(checks.length==0){
+						ckAll.checked=false
+					}else{
+					this.checked;
+					checks[i].checked=this.checked}
+				})
+		
+				checks[i].addEventListener('click',function(){
+					//如果删除的话，需重新获取有几个按钮
+					let checks=document.querySelectorAll('.check')
+					
+					let flag=true
+					for(let y=0;y<checks.length;y++){
+						if(!checks[y].checked){
+							flag=false
+						}
+					}
+					ckAll.checked=flag
+				
+				})
+		
+		
+		}
+	
+		//计算总价 
+		function cc(){
+			//删除之后重新获取当前商品数量和小计
+			
+			//小计
+			let cons=document.querySelectorAll('.con')
+			// input
+			let inputses=document.querySelectorAll('.count')
+			
+			let sum=0
+			let num=0
+			for(let x=0;x<cons.length;x++){
+				//sum=sum+小计
+				sum=sum+parseInt(cons[x].innerHTML)
+				num=num+parseInt(inputses[x].value)
+			}
+			//console.log(sum)
+			result.innerHTML=sum
+			less.innerHTML=num
+		}
+		cc();
+	
+		
+	
+	</script>
+	</body>
+</html>

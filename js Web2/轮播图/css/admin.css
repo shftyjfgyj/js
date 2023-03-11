@@ -1,0 +1,81 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+
+
+.tb{
+	width: 800px;
+	height: 500px;
+	background-color: pink;
+	margin: 100px auto;
+	position: relative;
+	z-index: 999;
+}
+li{
+	list-style-type: none;
+}
+
+
+
+.left,.right{
+	background: rgba(0, 0, 0, .3);
+	width: 20px;
+	height: 30px;	
+}
+/*左侧按钮*/
+.left{
+	position: absolute;
+	left: 0;
+	top: 50%;
+	margin-top: -15px;
+	border-top-right-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
+/*右侧按钮*/
+.right{
+	position: absolute;
+	top: 50%;
+	right: 0;
+	/*水平居中就是外上边距拿自身宽度的一半*/
+	margin-top: -15px;
+	border-top-left-radius: 15px;
+	border-bottom-left-radius: 15px;
+}
+
+/*小圆点*/
+.circle{
+	position: absolute;
+	bottom: 15px;
+	left: 50%;
+	margin-left: -35px;
+	width: 70px;
+	height: 13px;
+	background: rgba(255,255, 255, .3);
+	border-radius: 7px;
+}
+
+.circle li{
+	width: 8px;
+	height: 8px;
+	float: left;
+	margin: 3px;
+	border-radius: 50%;
+	background-color: #fff;
+}
+.circle .select{
+	background-color: #ff5000;
+}
+img{
+	width: 800px;
+	height: 500px;
+	
+}
+
+.tb a{
+	text-decoration: none;
+	color: white;
+	text-align: center;
+	line-height:30px ;
+}

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.header{
+				margin-top: 100px;
+				margin-left: 400px;
+			}
+			
+			button{
+				background: pink;
+			}
+			
+			table{
+				width: 500px;
+				margin: 100px auto;
+				border-collapse: collapse;
+				font-size: 13px;
+				color: black;
+				text-align: center;
+				
+			}
+			tbody tr{
+				height: 30px;
+			}
+			
+			th{
+				background-color: darkgrey;
+				height: 30px;
+			}
+			
+			th,td{
+				border: 1px solid #333;
+			}
+			
+			a{
+				text-decoration: none;
+			}
+			tbody tr:hover{
+				background-color: pink;
+			}
+	</style>
+	</head>
+	<body>
+		<div class="header">
+		姓名<input type="text" class="uname" size="8"/>
+		年龄:<input type="text" class="age" size="8"/>
+		性别:<select name="gender" id="" class="gender">
+			<option value="男">男</option>
+			<option value="女">女</option>
+		</select>
+		
+		薪资:<input type="text" class="salary" size="8"/>
+		就业城市:<select name="city" id="" class="city">
+			<option value="北京">北京</option>
+			<option value="上海">上海</option>
+			<option value="广州">广州</option>
+			<option value="深圳">深圳</option>
+			<option value="昆仑">昆仑</option>
+		</select>
+		<button class="add">录入</button>
+	</div>
+	<table>
+		<thead>
+			<tr>
+				<th>学号</th>
+				<th>姓名</th>
+				<th>年龄</th>
+				<th>性别</th>
+				<th>薪资</th>
+				<th>城市</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			
+		</tbody>
+	</table>
+	
+	<script>
+		//1.准备好数据
+		let arr=[{stuId:1001,
+			uname:'李熙瑶',
+			age:18,
+			gender:'女',
+			salary:'8000',
+			city:'昆仑'},
+			{
+			stuId:1002,
+			uname:'陈十一',
+			age:19,
+			gender:'男',
+			salary:'10000',
+			city:'泰山'
+			},
+			{
+			stuId:1003,
+			uname:'陈平安',
+			age:18,
+			gender:'男',
+			salary:'20000',
+			city:'落魄山'	
+			},
+			{
+			stuId:1004,
+			uname:'司冰倩',
+			age:18,
+			gender:'女',
+			salary:'8000',
+			city:'冰川'	
+			},
+			{
+			stuId:1005,
+			uname:'灵',
+			age:18,
+			gender:'女',
+			salary:'6000',
+			city:'星辰'	
+			}
+		]
+		
+		//获取表单元素
+		let uname=document.querySelector('.uname')
+		let age=document.querySelector('.age')
+		let gender=document.querySelector('.gender')
+		let salary=document.querySelector('.salary')
+		let city=document.querySelector('.city')
+		
+		//2.渲染数据
+		let tbody=document.querySelector('tbody')
+		
+		function render(){
+			//渲染前先清空之前的数据
+			tbody.innerHTML=''
+			for(let x=0;x<arr.length;x++){
+				//1.生成tr
+				let tr=document.createElement('tr')
+				//2.给tr添加数据
+				tr.innerHTML=`
+				<tr>
+					<td>${arr[x].stuId}</td>
+					<td>${arr[x].uname}</td>
+					<td>${arr[x].age}</td>
+					<td>${arr[x].gender}</td>
+					<td>${arr[x].salary}</td>
+					<td>${arr[x].city}</td>
+					<td><a href='javascript:;' id="${x}">删除</a></td>
+				</tr>`
+				//3.添加给父元素
+				tbody.appendChild(tr)
+				//使表单各项复原
+				uname.value=''
+				age.value=''
+				gender.value='男'
+				salary.value=''
+				city.value='北京'
+			}
+		}
+		//调用函数
+		render()
+	
+		
+		//按钮点击事件
+		let add=document.querySelector('.add')
+		add.addEventListener('click',function(){
+			arr.push({
+				//学号自动加一
+				stuId:arr[arr.length-1].stuId+1,
+				uname:uname.value,
+				age:age.value,
+				gender:gender.value,
+				salary:salary.value,
+				city:city.value
+			})
+		//console.log(arr)
+		//重新渲染
+		render()		
+		})
+	
+		//删除操作 用事件委托
+		tbody.addEventListener('click',function(e){
+			//删除数据，splice(从哪开始删,1)
+			if(e.target.tagName=='A'){
+				arr.splice(e.target.id,1)
+			}
+			//重新渲染
+			render()	
+		})
+		
+	</script>
+	</body>
+</html>

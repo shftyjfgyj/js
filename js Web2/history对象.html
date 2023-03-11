@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<a href="index.html">点击我去列表页</a>
+		<button>虚无</button>
+	
+	<script>
+		/*
+		var btn=document.querySelector('button');
+		btn.addEventListener('click',function(){
+			history.forward();
+		})
+		*/
+		
+		//forward() 前进 back() 返回 亦或go()
+		var btn=document.querySelector('button');
+		btn.addEventListener('click',function(){
+			history.go(1);//或-1
+		})
+	</script>
+	</body>
+</html>

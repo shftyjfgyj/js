@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+<style type="text/css">
+	
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	li{
+		list-style-type: none;
+	}
+	a{
+		text-decoration: none;
+		font-size: 14px;
+	}
+
+	.nav{
+		margin: 100px;
+
+	}
+
+	.nav>li{
+		position: relative;
+		float: left;
+		width: 80px;
+		height: 41px;
+		text-align: center;
+		
+	}
+	.nav li a{
+		display: block;
+		width: 100%;
+		height: 100%;
+		line-height: 41px;
+		color: #333;
+	}
+
+	.nav>li>a:hover{
+		background-color: pink;
+
+	}
+
+	.nav ul{
+		display: none;
+		position: absolute;
+		top: 41px;
+		left: 0;
+		width: 100%;
+		border-left: 1px solid #fecc5b;
+		border-right: 1px solid #fecc5b;
+	}
+
+	.nav ul li{
+		border-bottom: 1px solid #fecc5b;
+	}
+
+	.nav ul li a:hover{
+		background-color: #fecc5b;
+	}
+</style>
+</head>
+<body>
+	<ul class="nav">
+		<li>
+			<a href="">山海</a>
+			<ul>
+				<li><a href="">阿月</a></li>
+				<li><a href="">李熙瑶</a></li>
+				<li><a href="">神明</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="">月明</a>
+			<ul>
+				<li><a href="">陈十一</a></li>
+				<li><a href="">王林</a></li>
+				<li><a href="">苏铭</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="">入道</a>
+			<ul>
+				<li><a href="">善舞</a></li>
+				<li><a href="">孟浩</a></li>
+				<li><a href="">阿稚</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="">寻幽</a>
+			<ul>
+				<li><a href="">欲</a></li>
+				<li><a href="">会遗憾嘛</a></li>
+				<li><a href="">源稚生</a></li>
+			</ul>
+		</li>
+	</ul>
+<script type="text/javascript">
+	var nav=document.querySelector('.nav');
+	var lis=nav.children;
+
+	for(var x=0;x<lis.length;x++){
+		lis[x].onmouseover=function(){
+			this.children[1].style.display='block';
+		}
+	
+		lis[x].onmouseout=function(){
+			this.children[1].style.display='none';
+		}
+		console.log(lis[x].children);
+	}
+
+
+
+
+</script>
+</body>
+</html>

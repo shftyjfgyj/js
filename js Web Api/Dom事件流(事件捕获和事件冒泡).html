@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	<style type="text/css">
+		.father{
+			width: 300px;
+			height: 200px;
+			background-color: aquamarine;
+		}
+		.son{
+			width: 200px;
+			height: 100px;
+			position: absolute;
+			margin-left: 50px;
+			margin-top: 50px;
+			background-color: purple;
+			text-align: center;
+		}
+	</style>
+	</head>
+	<body>
+		<div class="father">
+			<div class="son">son</div>
+		</div>
+	
+	<script>
+		//1.Dom事件流三阶段,Js代码只能执行其中一个阶段
+		//2.捕获阶段 document ->html->body->father->son
+		//3.冒泡阶段 son->father->body->html->document
+		//4.当addEventListener('',function(){},true)的时候,为捕获阶段
+		
+		/*
+		捕获阶段
+		var son=document.querySelector('.son');
+		son.addEventListener('click',function(){
+			alert('son');
+		},true);
+		
+		var father=document.querySelector('.father');
+		father.addEventListener('click',function(){
+			alert('father');
+		},true);
+		*/
+		//冒泡阶段
+		var son=document.querySelector('.son');
+		son.addEventListener('click',function(){
+			alert('son');
+		},);
+		
+		var father=document.querySelector('.father');
+		father.addEventListener('click',function(){
+			alert('father');
+		},);
+		
+		document.addEventListener('click',function(){
+			alert('document');
+		})
+		
+		
+		
+	</script>
+	</body>
+</html>

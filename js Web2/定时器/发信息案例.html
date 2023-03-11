@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	<style type="text/css">
+		.btn{
+			margin-left: 5px;
+		}
+		input{
+			border-radius: 20px;
+		}
+	</style>
+	</head>
+	<body>
+	
+	<input type="text"/><button class="btn">发送</button>
+	<div></div>
+	<script>
+		
+		var btn=document.querySelector('.btn');
+		var div=document.querySelector('div');
+		var input=document.querySelector('input');
+		var time=10;//定义剩下的秒数
+		
+		btn.addEventListener('click',function(){
+				if(input.value==''){
+					div.innerHTML='请输入内容';
+					
+				}else{	
+					div.innerHTML='发送成功';
+					btn.disabled=true;
+					btn.style.background='antiquewhite';
+					var timer=setInterval(function(){
+						
+						if(time==0){
+							//清除定时器和复原按钮
+							clearInterval(timer);
+							btn.innerHTML='发送';
+							btn.disabled=false;
+							btn.style.background='';
+							div.style.display='none';
+							input.value=''
+							time=10;//10需重新开始
+						}else{
+							
+							btn.innerHTML='还剩下'+time+'秒';
+							time--;
+							
+						}
+				},1000);}	
+		})
+		
+		
+		
+		
+	</script>
+	</body>
+</html>

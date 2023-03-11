@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+<script type="text/javascript">
+	
+	for(var x=1;x<=3;x++){
+		console.log("这是外层的第"+x+"次");
+			for(var j=1;j<=3;j++){
+				console.log("这是里层的第"+j+"次");
+		}
+
+	}
+
+	
+	var sb=prompt('请您输入所需行数');
+	var sb2=prompt('请您输入所需列数');
+
+	var cc="";
+	for(var y=1;y<=sb;y++){
+		for(var h=1;h<=sb2;h++){
+			cc=cc+"☆";
+		}
+		
+		cc=cc+"\n"
+	}
+	alert(cc);
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

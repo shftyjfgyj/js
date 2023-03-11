@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	
+	<script>
+		/*
+		键盘事件: 1. onKeydown 按下键盘事件
+				 2. onKeypress 按下键盘事件 不能识别功能键 ctrl shift 左右箭头
+				 3. onKeyup 键盘弹起事件
+		
+		*/ 
+		document.addEventListener('keydown',function(){
+			console.log('鼠标按下down');
+		})
+		
+		document.addEventListener('keypress',function(){
+			console.log('鼠标按下press');
+		})
+		
+		document.addEventListener('keyup',function(){
+			console.log('鼠标弹起up');
+		})
+		
+	</script>
+	</body>
+</html>

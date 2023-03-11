@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	<style type="text/css">
+		div{
+			width: 300px;
+			height: 200px;
+			margin: 10px;
+			background-color: aqua;
+			text-align: center;
+		}
+				
+	</style>
+	</head>
+	<body>
+		<div>李熙瑶</div>
+		<div>北月</div>
+		<div>椋琼</div>
+		
+	
+	<script>
+		//1.传统解绑事件
+		var divs=document.querySelectorAll('div');
+		divs[0].onclick=function(){
+			alert('无可奉告');
+			divs[0].onclick=null;
+		}
+		
+		//2.解绑事件侦听器 removeaddEventListener()
+		divs[1].addEventListener('click',fn);
+		
+		function fn(){
+			alert('520');
+			divs[1].removeEventListener('click',fn);
+		}
+	
+		
+		divs[2].addEventListener('click',cc);	
+		function cc(){
+			alert('神明也会遗憾');
+			
+		}
+	</script>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<button>李熙瑶</button>
+	<button>池池</button>
+	<button>小黄</button>
+	<button>陈十一</button>
+	<button>阿月</button>
+
+<script type="text/javascript">
+	
+	var btn=document.getEmelentsByTagName('button');
+
+	for(var x=0;x<btn.length;x++){
+		btn[x].onclick=function(){
+			for(var x=0;x<btn.length;x++){
+				btn.style.backgroundColor='';
+			}
+			this.style.backgroundColor='blue';
+		}
+		
+	}
+
+
+
+
+
+
+</script>
+	
+</body>
+</html>

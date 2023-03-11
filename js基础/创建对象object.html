@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>创建对象</title>
+<script type="text/javascript">
+	
+	var cc={
+
+		name:'司冰倩',
+		age:18,
+		love:function(){
+			alert('倩倩会一直陪着小张走下去的');
+		}
+			
+
+	}
+
+	console.log(cc.name);//调用对象的属性,2种方式
+	console.log(cc['age']);//对象名.属性名
+	
+	
+	alert(cc.name);
+	alert(cc.age);
+	cc.love();//调用方法, 对象名.方法名
+
+	var sb=new Object();//第二种创建对象方式,使用Object
+	sb.name='李熙瑶';
+	sb.sex='神';
+	sb.age=758;
+
+	sb.skill=function(){
+		alert('娶我吧');
+	}
+
+	alert(sb.name);
+	alert(sb.sex);
+	alert(sb.age);
+	sb.skill();
+
+	//第三种方式,使用构造函数批量创建对象;
+	function Create(name,age,love){
+		this.name=name;
+		this.age=age;
+		this.love=love;
+		this.cc=function(){
+			alert('落日和远山终会相遇,我们也是');
+		}
+
+	}
+
+	var s1=new Create('黄欣月',19,'喜欢陪小张一起看海');
+	alert(s1.name);
+	alert(s1.age);
+	alert(s1.love);
+	s1.cc();
+</script>
+</head>
+<body>
+
+</body>
+</html>

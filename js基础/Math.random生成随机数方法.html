@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+<script type="text/javascript">
+	
+	//Math.random()生成随机数
+	console.log(Math.random(0,1));
+
+	//实现1到10之间的随机数并包含它们
+	function getRandom(max,min){
+		return Math.floor(Math.random()*(max-min+1))+min;
+	}
+
+	alert(getRandom(1,10));
+
+	//随机点名
+	var arr=['苏铭','王林','孟浩','白小纯','王宝乐','许青'];
+
+	alert(arr[getRandom(0,arr.length-1)]);
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

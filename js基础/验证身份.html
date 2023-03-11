@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+<script type="text/javascript">
+	
+
+	var sb=prompt('请输入新娘名字');
+	var sb2=prompt('请输入纪念日日期');
+
+	var name='池池';
+	var ch='964124';
+
+	
+	
+	if(sb!=name ||sb2!=ch){
+		for(var x=1;x<=3;x++){
+		var cc=prompt('请重新输入新娘名字');
+		var c2=prompt('请重新输入日期');
+		if(cc==name &&c2==ch){
+			alert('成功进入洞房');
+			break;
+		}else if(x==3){
+			alert('别人要抱走了');
+		}
+		}
+		} else{
+		     alert('恭喜抱得美人归');
+		}
+	
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

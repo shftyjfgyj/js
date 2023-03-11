@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+<script type="text/javascript">
+	
+	//静态数组
+	var arr=[1,2,3,4];
+
+	//动态数组
+	var arr1=Array(4);//也可自己添加数据
+
+	//数组添加数据
+	var hxy=["hxy","会","在一起"];
+	
+	hxy.unshift("小张和");//添加数组开头元素
+	hxy.push("吗？");//添加数组尾部元素
+
+	alert(hxy);
+
+	//删除数组数据
+	var cyj=["你","要和","池池","一起去","看海嘛","？"];
+	cyj.shift();//删除数组开头元素
+	
+	cyj.pop();//删除数组结尾元素
+
+	alert(cyj);
+
+	//例子:交换数组数据
+
+	var cc1=[120,250,345,421,689];
+	var newcc=[];
+
+	for(var x=0;x<cc1.length;x++){
+		if(cc1[x]>300){
+			newcc.push(cc1[x]);
+		}
+	}
+
+	alert("大于300的有:"+newcc);
+
+	var jk=["hxy","lyy","cyj","lxy","csy"];
+	jk.splice(1,3);//从1到3全部删除
+	alert(jk);
+
+	var pp=["wwe","ttg","ksg","csg","ffg"];
+	pp.splice(1,3,"po","llo");//删除并替换
+	alert(pp);
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

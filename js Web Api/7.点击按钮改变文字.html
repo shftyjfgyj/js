@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+<style type="text/css">
+	div,button{
+		
+		background-color: pink;
+
+	}
+	div{
+		width: 200px;
+		height: 100px;
+	}
+
+
+</style>
+</head>
+<body>
+
+		<button>普通按钮</button><br/>
+		<div>山川如酒，至死方休.</div>
+		
+<script type="text/javascript">
+	/*
+	innerText可改变元素内容
+	另有innerHTML亦同
+	
+	*/
+	//1.获取元素
+	var btn=document.querySelector('button');
+	var div=document.querySelector('div');
+
+	//2.绑定事件
+	btn.onclick=function(){
+		div.innerText=getTime();
+		//改变文字内容
+	}
+
+	
+	
+	
+	function getTime(){
+		var sb=new Date();
+
+		var hxy=sb.getFullYear();//返回年
+		var zxy=sb.getMonth()+1;//返回月份,不过返回的月份小一个月,应加1
+		var sbq=sb.getDate();//返回日
+		var lxy=sb.getDay();//返回星期几
+
+		var mh=sb.getHours();
+		mh=mh<10 ?'0'+mh:mh;
+		var wl=sb.getMinutes();
+		wl=wl<10 ?'0'+wl:wl;
+		var sm=sb.getSeconds();
+		sm=sm<10 ?'0'+sm:sm;
+
+		
+		
+		return '今天是'+hxy+'年'+zxy+'月'+sbq+'日'+'星期'+lxy+' '+mh+':'+wl+':'+sm;
+
+	}
+</script>
+</body>
+</html>

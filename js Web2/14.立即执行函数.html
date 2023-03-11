@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	
+	<script>
+		/*
+		立即执行函数 就是可以立即执行的函数 不需要被调用
+		
+		写法: (function(){})() 或者 (function(){}())
+		
+		好处:创建一个独立的作用域,里面的变量都是局部变量,不会出现命名冲突的情况
+		*/
+		
+		(function(a,b){	//形参
+			console.log(a+b);
+		})(1,2);	//第二个括号可以看做是调用函数 实参
+		
+		(function sum(a,b){
+			console.log(a+b);
+		}(500,20))
+	
+	</script>
+	</body>
+</html>

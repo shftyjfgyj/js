@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			
+			.father{
+				width: 400px;
+				height: 400px;
+				position: absolute;
+				top: 20%;
+				left: 35%;
+				background-color: pink;
+			}
+		
+			.son_one{
+				height: 50px;
+				position: absolute;
+				margin: 30px 35px;
+				
+			}
+		
+			.son_two{
+				height: 50px;
+				position: absolute;
+				margin-top: 80px;
+				margin-left: 35px;
+			}
+			
+			.son_three{
+				height: 50px;
+				position: absolute;
+				margin-top: 130px;
+				margin-left: 35px;
+			}
+		
+			span{
+				position: absolute;
+				font-size: 8px;
+				color: red;
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="father">
+			<div class="son_one">
+				用户名:<input type="text" name="admin" placeholder="请输入用户名"/>
+				<span class="spo"></span>
+			</div>
+			<div class="son_two">
+				密码:&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="admin" placeholder="请输入密码"/>
+				<span class="spt"></span>
+			</div>
+			<div class="son_three">
+				验证码:<input type="text" name="admin" placeholder="请输入验证码"/>
+				<input type="button" value="发送" class="code" size="15"/>
+				<span class="spr"></span>
+			</div>
+		</div>
+	
+	
+	
+	<script>
+		//1.验证码模块
+		
+		(function(){
+			let code=document.querySelector('.code')
+			
+			code.addEventListener('click',function(){
+				
+				let sum=6
+				
+				let ss=setInterval(function(){
+					if(sum===1){
+						clearInterval(ss)
+						code.value='发送'
+						sum=6
+					}else{
+						sum--
+						code.value=`0${sum}后重新获取`
+						
+					}
+				},1000)
+			})
+			
+		}());
+		
+		//2.判断用户名模块
+		(function verityUsername(){
+			
+			let name=document.querySelector('[name=admin]')
+			let spo=document.querySelector('.spo')
+			
+			name.addEventListener('change',function(){
+				let hxy=/^[a-zA-Z0-9-_]{6,10}$/
+				
+				if(!hxy.test(name.value)){
+					spo.innerHTML='输入错误'
+					name.value=''
+					return false
+				}else{
+					spo.innerHTML=''	
+					localStorage.setItem('admin',name.value)
+					return true
+				}
+															
+			})
+			if(localStorage.getItem('admin')){
+				name.value=localStorage.getItem('admin')
+			}	
+			
+		}());
+		
+		
+		
+		
+	</script>
+	</body>
+</html>

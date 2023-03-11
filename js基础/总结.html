@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+<script type="text/javascript">
+	
+	//数组求取最大值
+	var cc=[20,30,52,47];
+	function c2(cc){
+		var max=cc[0];
+		for(var x=1;x<cc.length;x++){
+			if(cc[x]>max){
+				max=cc[x];
+			}
+		}
+		return max;
+	}
+
+	var sb=c2(cc);
+	alert("最大值为"+sb);
+
+	//数组翻转和排序
+	var ss=[21,22,66,45,88];
+	ss.reverse();
+	alert("翻转后的数组为:"+ss);
+
+	//排序:
+	ss.sort(function (a,b){
+		return a-b;
+	});
+
+	alert("排序后的数组为:"+ss);
+
+	//数组首部和尾部的添加和删除
+	var hxy=["已","被","通","辑","中"];
+	//添加
+	hxy.unshift("你");
+	hxy.push("了");
+	alert(hxy);
+
+	//删除
+	hxy.shift();
+	hxy.pop();
+	alert(hxy);
+
+	//删除并替换
+	var xxx=["李熙瑶","陈十一","苏铭","孟浩","王林"];
+
+	xxx.splice(2,3,"大爱仙尊","顾楠");
+	alert(xxx);
+
+
+
+
+
+
+	//Math方法
+	//1.Math.max()
+	var num=[25,66,88,99];
+	var sb1=Math.max(...num);
+	alert("最大值为"+sb1);
+
+	//2.Math.random()
+
+	function getRandom(max,min){
+		return Math.floor(Math.random()*(max-min+1))+min;
+	}
+
+	var jk=getRandom(1,20);
+	while(true){
+		var kl=prompt("请输入1到20的随机数");
+		if(kl>jk){
+			alert("你猜大了");
+		}else if(kl<jk){
+			alert("你猜小了");
+		}else if(kl=jk){
+			alert("恭喜你，走狗屎运猜对了");
+			break;
+		}
+	}
+
+	//Date方法
+	var cyj=new Date();
+	
+	var c1=cyj.getFullYear();
+	var c2=cyj.getMonth()+1;
+	var c3=cyj.getDate();
+	var c4=cyj.getDay();
+
+	alert("今天是"+c1+"年"+c2+"月"+c3+"日"+"星期"+c4);
+
+	function gethh(){
+		 var uu=new Date();
+
+		 var oo=uu.getHours();
+		 oo=oo<10?'0'+oo:oo;
+		 var jj=uu.getMinutes();
+		 jj=jj<10?'0'+jj:jj;
+		 var ll=uu.getSeconds();
+		 ll=ll<10?'0'+ll:ll;
+
+		 return oo+":"+jj+":"+ll;
+
+	}
+
+	alert(gethh());
+
+	//类和对象
+
+	var er=new Object();
+	er.name='池池';
+	er.age=15;
+	er.love='山岳共傾天';
+	console.log(er);
+
+
+	function huang(name,age,love){
+
+		this.name=name;
+		this.age=age;
+		this.love=love;
+
+		this.qin=function(){
+			alert("山海共起意");
+		}
+	}
+
+	var mm=new huang("李熙瑶","18","共舞");
+	console.log(mm);
+	mm.qin();
+
+	//循环对象
+
+	var ty={
+		name:"李熙瑶",
+		age:18,
+		love:"你所见即我",
+	}
+
+	for(var k in ty){
+		alert(k);
+		alert(ty[k]);
+	}	
+
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

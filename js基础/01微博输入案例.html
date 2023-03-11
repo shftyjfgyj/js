@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>微博输入案例</title>
+	<style type="text/css">
+		textarea{
+			border-radius: 5%;
+			border: 3px solid pink;
+		}
+		.div{
+			position: relative;
+			font-size: 10px;
+			color: purple;
+			top: 0;
+			margin-left: 20%;
+		}
+		button{
+			margin-left: 10px;
+			border-radius: 5px;
+			border-color: bisque;
+			font-size: 5px;
+			background-color: darkcyan;
+			
+		}
+		a{
+			text-decoration: none;
+			color: red;
+			font-size: 10px;
+		}
+	</style>
+	</head>
+	<body>
+		<h3>请输入评论</h3>
+		<textarea cols="50" rows="5" maxlength="200"></textarea>
+		<div class="div">
+		<span class="rel">0</span>
+		<span>/</span>
+		<span>200</span>
+		<button>发布</button>
+		</div>
+		<ul>
+			
+		</ul>
+	<script>
+		let area=document.querySelector('textarea');
+		let rel=document.querySelector('.rel');
+		let btn=document.querySelector('button')
+		let ul=document.querySelector('ul')
+		
+		area.addEventListener('input',function(){
+			rel.innerHTML=area.value.length;
+		})
+	
+		btn.addEventListener('click',function(){
+			// trim防止用户空格输入空数据
+			if(area.value.trim()==''){
+				area.value=''
+				rel.innerHTML=0
+				return alert('请输入内容')
+			}else{
+			//1.创建元素
+			var li=document.createElement('li');
+				
+			//2.给li赋值并筛选过虑掉敏感词汇
+			li.innerHTML=area.value.replace(/傻逼|妈|滚蛋/g,'**')+"<a href='javascript:;'>删除</a>";
+			
+			//3.添加元素
+			//ul.appendChild(li);
+			ul.insertBefore(li,ul.children[0]);
+		
+			//4.删除链接 删除的是li 当前a所在的li this.parentNode
+			var as=document.querySelectorAll('a');
+			
+			for(var x=0;x<as.length;x++){
+				as[x].onclick=function(){
+					ul.removeChild(this.parentNode);
+				}
+			}
+		}
+			
+			//发布内容后清零
+			area.value=''
+			rel.innerHTML=0
+			
+		})
+		
+		//回车键发布内容
+		area.addEventListener('keyup',function(e){
+			if(e.keyCode===13){
+				btn.click()
+			}
+		})
+	
+		
+	
+	
+	</script>
+	</body>
+</html>

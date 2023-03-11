@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+<style type="text/css">
+		.tab{
+			width: 600px;
+			height: 500px;
+			position: absolute;
+			top: 20px;
+			left: 100px;
+			
+			padding-top: 20px;
+			
+		}
+		.tab_list{
+			background-color: pink;
+			border-bottom: 1px solid red;
+			height: 50px;
+
+		}
+		
+		.tab_list ul{
+			padding-left: 0px;
+			height: 50px;
+		}
+
+		.tab li{
+		float: left;
+		display: inline-block;
+		box-sizing: border-box;
+		padding-left: 20px;
+		padding-right: 20px;
+		text-align: center;
+		height: 50px;
+		line-height: 50px;
+		margin: 0;
+		cursor: pointer;
+		}
+
+		.current{
+			
+			background-color: red;
+			color: white;
+		}
+
+		.item{
+			display: none;
+		}
+</style>
+</head>
+<body>
+	<div class="tab">
+		<div class="tab_list">
+		<ul>
+		<li class="current">商品详情</li>
+		<li>价格</li>
+		<li>售后</li>
+		<li>物流</li>
+		</ul>	
+		</div>
+
+		<div class="tab_con">
+			<div class="item" style="display: block;">
+				商品详情内容
+			</div>
+			<div class="item">
+				价格内容
+			</div>
+			<div class="item">
+				售后保障
+			</div>
+			<div class="item">
+				物流信息
+			</div>
+		</div>
+	</div>
+<script type="text/javascript">
+	//获取元素
+	var tab_list=document.querySelector('.tab_list');
+	var lis=tab_list.querySelectorAll('li');
+	var items=document.querySelectorAll('.item');
+	//for循环绑定点击事件
+	//排他思想
+	for(var x=0;x<lis.length;x++){
+		//给5个li设置索引号
+		lis[x].setAttribute('index',x);
+		lis[x].onclick=function(){
+			//干掉其他人,其他的li都清除掉class这个样式
+			for(var i=0;i<lis.length;i++){
+				lis[i].className='';
+			}
+		//只留下自己
+		this.className='current';
+	
+		//2.内容模块
+		var index=this.getAttribute('index');
+		for(var y=0;y<items.length;y++){
+			items[y].style.display='none';
+		}
+		items[index].style.display='block';
+	}
+}
+
+
+
+
+</script>
+</body>
+</html>

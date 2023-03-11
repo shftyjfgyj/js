@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+<script type="text/javascript">
+	
+	var cc="hxyhcyjzxysbqh";
+	var cs=cc.indexOf('h');//如果没有查询到字符,返回-1,反之,返回0
+	var num=0;
+	while(cs!==-1){
+
+		console.log("h出现的位置是"+cs);
+		num++;
+		cs=cc.indexOf('h',cs+1);
+		//因为indexof只能查找一次索引,所以在参数后面加1,进行后面的查找; 
+	}
+	console.log('h出现过的次数是'+num);
+
+	//根据位置返回字符
+	var hxy="苏执";
+
+	for(var x=0;x<hxy.length;x++){
+		console.log(hxy.charAt(x));
+	}
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

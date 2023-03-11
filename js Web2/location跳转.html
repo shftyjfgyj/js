@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	
+		<button>回到过去</button>
+		
+	<script>
+		/*
+			1. location.assign可实现后退功能
+			2. location.replace 不可实现后退功能
+			3. location.relode 重新刷新页面 Ctrl+5 可强制刷新页面
+			4.location对象有两个属性 location.href 和location.search
+			href可以跳转页面 search可以得到？后面的数据
+		*/
+		var btn=document.querySelector('button');
+		btn.addEventListener('click',function(){
+			location.assign('http://bilibili.com');
+		})
+		
+	</script>
+	</body>
+</html>

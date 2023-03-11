@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<a href="http://www.baidu.com">百度</a>	
+		<br/>
+		<br/>
+		<form action="http://www.bilibili.com">
+			<input type="submit"/>
+		</form>
+	
+	<script>
+		/*
+			1.阻止默认行为 使链接不再跳转 提交按钮不再提交
+			prenentDefault()
+			
+			2.低版本浏览器IE678  returnVaule
+			
+			3.return false没有兼容性问题 但return 后面的代码不执行 仅限于传统注册方式
+			
+		*/
+		var a=document.querySelector('a');
+		a.addEventListener('click',fn);
+		function fn(e){
+			alert('sb');
+			e.preventDefault();
+		}
+		
+		var btn=document.querySelector('input');
+		btn.onclick=function(h){
+			alert('cnmd');
+			return false;
+		}
+		
+		
+	</script>
+	</body>
+</html>

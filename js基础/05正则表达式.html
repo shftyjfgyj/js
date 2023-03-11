@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	
+	<script>
+		//1.定义正则表达式，sb里面是个对象
+		let sb=/意思/
+		let arr='没什么意思'
+		
+		//2.test()方法检测是否匹配 匹配成功返回true，反之false
+		console.log(sb.test(arr))
+		
+		//3. exec() 检索 返回的是个数组 成功为数组，反之为null
+		console.log(sb.exec(arr))
+		
+		/*
+			两者的区别是:
+			test()用于判断是否存在该字符串
+			exec()用于检索该字符串的位置
+		*/
+		
+		//边界符 以^开头 以$结尾
+		let cc=/^池池/	//匹配是否已池池开头
+		let hxy='林幼楚'
+		console.log(cc.test(hxy))	//false
+	
+		let dd=/^李熙瑶$/
+		let ss='李熙瑶李熙瑶'	 //匹配以李熙瑶开头和结尾
+		console.log(dd.test(ss))	//false
+	
+	</script>
+	</body>
+</html>

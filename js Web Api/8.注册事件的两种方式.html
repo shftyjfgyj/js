@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>注册事件的两种方式</title>
+	</head>
+	<body>
+		<button>镜花水月</button>
+		<button>火中取粟</button>
+	
+	<script>
+		//1.传统注册方式
+		var btns=document.querySelectorAll('button');
+		btns[0].onclick=function(){
+			alert('所求非良人');
+		}
+		
+		//2.事件侦听注册事件 addEventListener() 不过也有兼容性问题
+		//(1)里面的事件类型是字符串必带'';不加on
+		//同一个事件 同一个元素 可以添加多个事件侦听器(事件处理程序)
+		btns[1].addEventListener('click',function(){
+			alert('昙花一现');
+		})
+		
+		btns[1].addEventListener('click',function(){
+			alert('由证本心');
+		})
+		
+		
+		
+		
+	</script>
+	</body>
+</html>

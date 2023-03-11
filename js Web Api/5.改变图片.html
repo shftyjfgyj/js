@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+<style type="text/css">
+	
+	button{
+		width: 100px;
+		height: 80px;
+	}
+	img{
+		width: 600px;
+		height: 500px;
+	}
+
+</style>
+</head>
+<body>
+
+	<button id="lxy">李熙瑶</button><br/>
+	<button id="ww">万万a</button>
+	<img src="images/1.jpg" title="李熙瑶">
+<script type="text/javascript">
+	
+	var lxy=document.getElementById('lxy');
+	var ww=document.getElementById('ww');
+	var img=document.querySelector('img');
+	
+	lxy.onclick=function(){
+		img.src='images/1.jpg';
+		img.title="李熙瑶";
+	}
+	
+	ww.onclick=function(){
+		img.src='images/2.jpg';
+		img.title="万万a";
+	}
+
+</script>
+</body>
+</html>

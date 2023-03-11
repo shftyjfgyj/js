@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	
+	<button>点击取消爆炸</button>
+	
+	<script>
+		var cc=setTimeout(function(){
+			alert('嘭！!!地球爆炸');
+		},4000);
+		
+		var btn=document.addEventListener('click',function(){
+			clearTimeout(cc);//清除定时器
+		})
+		
+		
+	</script>
+	</body>
+</html>

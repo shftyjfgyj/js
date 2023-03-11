@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+<script type="text/javascript">
+	
+	var cc="";
+	for(var y=1;y<=9;y++){
+		for(var h=1;h<=y;h++){
+			cc+=h+'x'+y+'='+y*h+'\t';
+		}
+		
+		cc+='\n';
+	}
+	alert(cc);
+
+	var cc=[];
+
+	for(var x=0;x<100;x++){
+		cc[x]=x+1;
+	}
+	alert(cc);
+
+	function ask(name,age,live){
+		this.name=name;
+		this.age=age;
+		this.live=live;
+		this.hxy=function (){
+			alert('情字何解'); 
+		}
+	}
+
+	var s1=new ask('黄欣月','18','cc');
+	alert(s1.name);
+	alert(s1.age);
+	alert(s1.live);
+	s1.hxy();
+
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

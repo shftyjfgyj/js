@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+<style type="text/css">
+	.bg{
+		background-color: pink;
+	}
+</style>
+</head>
+<body>
+
+	<table border="1" width="400" height="300" align="center">
+		<thead height="50px">
+		<tr align="center" valign="middle">
+		<th>尊名</th>	
+		<th>体系</th>
+		<th>阶位</th>
+		<th>进化点数</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr align="center" valign="middle">
+		<td>陈十一</td>
+		<td>终焉</td>
+		<td>神明之下</td>
+		<td>6</td>
+		</tr>
+		<tr align="center" valign="middle">
+		<td>李熙瑶</td>
+		<td>窥命</td>
+		<td>终极</td>
+		<td>4</td>
+		</tr>
+		
+		<tr align="center" valign="middle">
+		<td>陈诗怡</td>
+		<td>虚无</td>
+		<td>不详</td>
+		<td>4</td>
+		</tr>
+		</tbody>
+	</table>
+
+<script type="text/javascript">
+	
+	var str=document.querySelector('tbody').querySelectorAll('tr');
+
+	for(var x=0;x<str.length;x++){
+		//鼠标经过事件
+		str[x].onmouseenter=function(){
+			this.className='bg';
+		}
+	
+		//鼠标离开事件
+		str[x].onmouseleave=function(){
+			this.className='';
+		}
+
+
+	}
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

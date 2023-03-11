@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	<style type="text/css">
+		div{
+			width: 80%;
+			height: 20%;
+			padding: 0px;
+			
+			position: fixed;
+		}
+		
+		span{
+			display: block;
+			width: 80px;
+			height: 50px;
+			
+			background-color: black;
+			color: aliceblue;
+			text-align: center;
+		}
+		
+		
+		
+		.minute{
+			position: absolute;
+			left: 120px;
+			top: 0px;
+			
+		}
+	
+		.second{
+			position: absolute;
+			left: 200px;
+			top: 0px;
+			margin-left: 30px;
+		}
+	
+		.begin{
+			position: absolute;
+			left: 100px;
+			top: 80px;
+		}
+	
+		.stop{
+			position: absolute;
+			left: 200px;
+			top: 80px;
+		}
+	
+	</style>
+	</head>
+	<body>
+	
+		<div>
+			<span class="hours"></span>
+			<span class="minute"></span>
+			<span class="second"></span>
+		
+		<button class="begin">开启定时器</button><br/>
+		<button class="stop">关闭定时器</button>
+		</div>
+		
+	<script>
+		//1.获取元素
+		var hours=document.querySelector('.hours');
+		var minute=document.querySelector('.minute');
+		var second=document.querySelector('.second');
+		var begin=document.querySelector('.begin');
+		var stop=document.querySelector('.stop');
+		
+		var hxy=+new Date('2023-1-15 17:48:00' );//用户输入的日期
+		countDown();//先执行一次,防止刷新页面时出现空白
+		
+		//2.开启定时器
+		var ss=null;
+		begin.addEventListener('click',function(){
+			 ss=setInterval(countDown,1000);
+		})
+		//清除定时器
+		stop.addEventListener('click',function(){
+			clearInterval(ss);
+		})
+		
+		function countDown(){
+			var nowTime=+new Date();//现在的毫秒数
+			var times=(hxy-nowTime)/1000;//毫秒转换为秒
+		
+			var h=parseInt(times/60/60%24);//时
+			h=h<10 ?'0'+h:h;
+			hours.innerHTML=h;
+			
+			var m=parseInt(times/60%60);//分
+			m=m<10 ?'0'+m:m;
+			minute.innerHTML=m;
+			
+			var s=parseInt(times%60);//秒
+			s=s<10 ?'0'+s:s;
+			second.innerHTML=s;
+			
+			
+			
+		}
+	</script>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	
+		<button>回到过去</button>
+		<div></div>
+	
+	
+	<script>
+		
+		var btn=document.querySelector('button');
+		var div=document.querySelector('div');
+		
+		
+		var timer=5;
+		btn.addEventListener('click',function(){
+			setInterval(function(){
+						if(timer==0){
+							location.href='http://www.bilibili.com';
+						}else{
+							div.innerHTML='还剩下'+timer+'秒回到过去';
+							timer--;
+						}
+					},1000)
+		})
+		
+		
+		
+		
+		
+		
+	</script>
+	</body>
+</html>

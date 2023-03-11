@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.ul{
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			background-color: antiquewhite;
+		}
+		ul{
+			list-style-type: none;
+		}
+		.ul li{
+			float: left;
+			margin: 10px;
+			border-right: 3px solid sandybrown;
+			
+		}
+		a{
+			text-decoration: none;
+			text-align: center;
+			color: black;
+			padding: 8px 16px;
+		}
+		li a:hover{
+			background-color: pink;
+		}
+	
+		.colud{
+			position: absolute;
+			width: 90px;
+			height: 40px;
+			top: 2px;
+			
+			background: url(images/file.png) no-repeat;
+			background-size:100% 100%;
+			
+		}
+	</style>
+	<script src="animate.js"></script>
+	</head>
+	<body>
+		<div class="ul">
+			<span class="colud"></span>
+			<ul>
+				<li><a href="javascript:;">李熙瑶</a></li>
+				<li><a href="javascript:;">李欣怡</a></li>
+				<li><a href="javascript:;">源稚生</a></li>
+				<li><a href="javascript:;">陈十一</a></li>
+				<li><a href="javascript:;">看了</a></li>
+			</ul>
+			
+	</div>
+	<script>
+		var cloud=document.querySelector('.colud');
+		var div=document.querySelector('.ul');
+		var lis=div.querySelectorAll('li');
+		var login=0;//定义起始位置为0
+		
+		for(var i=0;i<lis.length;i++){
+			//1.鼠标经过就滑动到当前位置
+			lis[i].addEventListener('mouseenter',function(){
+				animate(cloud,this.offsetLeft);
+			})
+			//2.鼠标离开就还原为起始位置
+			lis[i].addEventListener('mouseleave',function(){
+				animate(cloud,login);
+			})
+			//3.鼠标点击就把当前位置定义为起始位置
+			lis[i].addEventListener('click',function(){
+				login=this.offsetLeft;
+			})
+		}
+	</script>
+	</body>
+</html>

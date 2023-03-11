@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>节点操作</title>
+<style type="text/css">
+	.father{
+		width: 400px;
+		height: 300px;
+		border: 1px double pink;
+		padding: 0;
+	}
+	.child{
+		width: 400px;
+		height: 50px;
+		margin-top: 10px;
+		border: 1px solid black;
+	}
+
+
+</style>
+</head>
+<body>
+	<div class="father">
+	<div class="child">
+		<span>子元素</span>
+	</div>
+	</div>
+	<ul>
+		<li>s1</li>
+		<li>s2</li>
+		<li>d3</li>
+		<li>c4</li>
+	</ul>
+<script type="text/javascript">
+	//输出父元素,离自己最近的那一个
+	var div=document.querySelector('span');
+	console.log(div.parentNode);
+
+	//1.输出子元素
+	var ul=document.querySelector('ul');
+	console.log(ul.childNodes);
+
+	/*2.但childNodes有个缺点,会把所有的节点都获取,我们只想要元素节点
+	*/
+	for(var x=0;x<ul.childNodes.length;x++){
+		if(ul.childNodes[x].nodeType==1){
+			console.log(ul.childNodes[x]);
+		}
+	}
+
+	//3.最简便的用children
+	console.log(ul.children);
+
+	//4.获取第一个和最后一个子元素
+	console.log(ul.children[0]);
+	console.log(ul.children[ul.children.length-1]);
+
+</script>
+</body>
+</html>
